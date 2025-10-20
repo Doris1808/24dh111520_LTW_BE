@@ -1,0 +1,29 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>@ViewBag.Title - Admin Panel</title>
+    <link href="~/lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
+</head>
+<body>
+    <div class="container mt-3">
+        <header>
+            <h2 class="text-center">TRANG QUẢN TRỊ - ADMIN SITE</h2>
+            <hr />
+            <nav class="mb-3">
+                <a href="/Admin/Categories" class="btn btn-outline-primary">Danh mục</a>
+                <a href="/Admin/Products" class="btn btn-outline-success">Sản phẩm</a>
+                <a href="/Admin/Customers" class="btn btn-outline-info">Khách hàng</a>
+                <a href="/Admin/Orders" class="btn btn-outline-warning">Đơn hàng</a>
+            </nav>
+        </header>
+
+        @RenderBody()
+
+        <hr />
+        <footer class="text-center">
+            <small>&copy; 2025 - Admin Area - 24DH111520</small>
+        </footer>
+    </div>
+</body>
+</html>

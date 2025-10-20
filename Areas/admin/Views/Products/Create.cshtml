@@ -1,0 +1,40 @@
+﻿@model _24dh111520_LTW.Models.Product
+@{
+    ViewBag.Title = "Thêm sản phẩm";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>Thêm sản phẩm</h2>
+
+<form asp-action="Create" method="post">
+    <div class="form-group">
+        <label>Tên sản phẩm</label>
+        <input asp-for="ProductName" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <label>Mô tả</label>
+        <textarea asp-for="ProductDescription" class="form-control"></textarea>
+    </div>
+
+    <div class="form-group">
+        <label>Giá</label>
+        <input asp-for="ProductPrice" type="number" step="0.01" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <label>Danh mục</label>
+        @Html.DropDownListFor(model => model.CategoryId,
+            new SelectList(ViewBag.Categories, "CategoryId", "CategoryName"),
+            "-- Chọn danh mục --",
+            new { @class = "form-control" })
+    </div>
+
+    <div class="form-group">
+        <label>Hình ảnh (URL)</label>
+        <input asp-for="ProductImage" class="form-control" />
+    </div>
+
+    <button type="submit" class="btn btn-success mt-2">Lưu</button>
+    <a asp-action="Index" class="btn btn-secondary mt-2">Quay lại</a>
+</form>

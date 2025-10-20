@@ -20,6 +20,23 @@
       <PrivateAssets>all</PrivateAssets>
     </PackageReference>
     <PackageReference Include="EntityFramework" Version="6.5.1" />
-    <PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL" Version="9.0.0" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Remove="Areas\" />
+    <None Remove="Areas\admin\" />
+    <None Remove="Areas\admin\Controllers\" />
+    <None Remove="Areas\admin\Views\" />
+    <None Remove="Areas\admin\Views\Shared\" />
+    <None Remove="Areas\admin\Views\Categories\" />
+    <None Remove="Areas\admin\Views\Products\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Areas\" />
+    <Folder Include="Areas\admin\" />
+    <Folder Include="Areas\admin\Controllers\" />
+    <Folder Include="Areas\admin\Views\" />
+    <Folder Include="Areas\admin\Views\Shared\" />
+    <Folder Include="Areas\admin\Views\Categories\" />
+    <Folder Include="Areas\admin\Views\Products\" />
   </ItemGroup>
 </Project>

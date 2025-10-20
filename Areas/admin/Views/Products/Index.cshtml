@@ -1,0 +1,37 @@
+﻿@model IEnumerable<_24dh111520_LTW.Models.Product>
+@{
+    ViewBag.Title = "Quản lý sản phẩm";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>Danh sách sản phẩm</h2>
+<p><a href="@Url.Action("Create")" class="btn btn-primary">+ Thêm mới</a></p>
+
+<table class="table table-bordered table-striped">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Tên sản phẩm</th>
+            <th>Danh mục</th>
+            <th>Giá</th>
+            <th>Hình ảnh</th>
+            <th>Thao tác</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.ProductId</td>
+                <td>@item.ProductName</td>
+                <td>@item.Category?.CategoryName</td>
+                <td>@item.ProductPrice</td>
+                <td><img src="@item.ProductImage" width="60" /></td>
+                <td>
+                    <a href="@Url.Action("Edit", new { id = item.ProductId })" class="btn btn-sm btn-warning">Sửa</a>
+                    <a href="@Url.Action("Delete", new { id = item.ProductId })" class="btn btn-sm btn-danger">Xóa</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

@@ -15,7 +15,8 @@ public class HomeController : Controller
 
     public IActionResult Index()
     {
-        return View();
+        // ✅ Khi mở trang chủ, tự chuyển đến /Admin/Categories
+        return RedirectToAction("Index", "Categories", new { area = "Admin" });
     }
 
     public IActionResult Privacy()
@@ -29,4 +30,3 @@ public class HomeController : Controller
         return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
     }
 }
-

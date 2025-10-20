@@ -1,4 +1,8 @@
-﻿namespace _24dh111520_LTW;
+﻿using System;
+using _24dh111520_LTW.Models;
+using Microsoft.EntityFrameworkCore;
+
+namespace _24dh111520_LTW;
 
 public class Program
 {
@@ -9,9 +13,12 @@ public class Program
         // Add services to the container.
         builder.Services.AddControllersWithViews();
 
+        //  Thêm cấu hình DbContext cho SQL Server
+        builder.Services.AddDbContext<MyStoreContext>(options =>
+            options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+
         var app = builder.Build();
 
-        // Configure the HTTP request pipeline.
         if (!app.Environment.IsDevelopment())
         {
             app.UseExceptionHandler("/Home/Error");
@@ -22,6 +29,11 @@ public class Program
 
         app.UseAuthorization();
 
+        //  Thêm route cho Areas (Admin)
+        app.MapControllerRoute(
+            name: "areas",
+            pattern: "{area:exists}/{controller=Home}/{action=Index}/{id?}");
+
         app.MapControllerRoute(
             name: "default",
             pattern: "{controller=Home}/{action=Index}/{id?}");
@@ -29,4 +41,3 @@ public class Program
         app.Run();
     }
 }
-
