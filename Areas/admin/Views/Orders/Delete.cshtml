@@ -1,0 +1,16 @@
+﻿@model _24dh111520_LTW.Models.Order
+@{
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>Delete Order #@Model.OrderId</h2>
+
+<p>Customer: @Model.Customer?.CustomerName</p>
+<p>Date: @Model.OrderDate</p>
+<p>Status: @Model.PaymentStatus</p>
+
+<form asp-area="Admin" asp-controller="Orders" asp-action="Delete" method="post">
+    <input type="hidden" asp-for="OrderId" />
+    <button type="submit" class="btn btn-danger">Confirm Delete</button>
+    <a asp-area="Admin" asp-controller="Orders" asp-action="Index" class="btn btn-secondary">Cancel</a>
+</form>

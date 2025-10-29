@@ -8,10 +8,10 @@
 
 <div class="border p-3">
     <h4>@Model.ProductName</h4>
-    <p><b>Mô tả:</b> @Model.ProductDecription</p>
-    <p><b>Giá:</b> @Model.ProductPrice</p>
+    <p><b>Mô tả:</b> @Model.ProductDescription</p>
+    <p><b>Giá:</b> @Model.ProductPrice.ToString("N0") ₫</p>
     <p><b>Danh mục:</b> @Model.Category?.CategoryName</p>
-    <img src="@Model.ProductImage" width="100" />
+    <img src="@Model.ProductImage" width="120" />
 </div>
 
 <form asp-action="DeleteConfirmed" method="post">

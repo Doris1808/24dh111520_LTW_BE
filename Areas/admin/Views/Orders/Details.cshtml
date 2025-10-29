@@ -1,0 +1,30 @@
+﻿@model _24dh111520_LTW.Models.Order
+@{
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>Order #@Model.OrderId</h2>
+<p><b>Customer:</b> @Model.Customer?.CustomerName</p>
+<p><b>Date:</b> @Model.OrderDate</p>
+<p><b>Payment:</b> @Model.PaymentStatus</p>
+<p><b>Delivery Address:</b> @Model.AddressDelivery</p>
+
+<table class="table">
+    <thead>
+        <tr><th>Product</th><th>Qty</th><th>Unit Price</th><th>Subtotal</th></tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.OrderDetails)
+        {
+            <tr>
+                <td>@item.Product?.ProductName</td>
+                <td>@item.Quantity</td>
+                <td>@item.UnitPrice.ToString("N0")</td>
+                <td>@(item.Quantity * item.UnitPrice).ToString("N0")</td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<p><b>Total:</b> @Model.TotalAmount.ToString("N0")</p>
+<a asp-area="Admin" asp-controller="Orders" asp-action="Index">Back to List</a>

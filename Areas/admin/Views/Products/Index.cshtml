@@ -2,9 +2,29 @@
 @{
     ViewBag.Title = "Quản lý sản phẩm";
     Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+
+    var search = ViewBag.Search as string ?? "";
+    var currentSort = Context?.Request?.Query["sortOrder"].ToString() ?? "";
+    int currentPage = ViewBag.CurrentPage ?? 1;
+    int totalPages = ViewBag.TotalPages ?? 1;
 }
 
 <h2>Danh sách sản phẩm</h2>
+
+<form method="get" action="@Url.Action("Index")" class="mb-2">
+    <input type="text" name="search" value="@search" placeholder="Tìm theo tên, danh mục..." />
+    <input type="hidden" name="sortOrder" value="@currentSort" />
+    <button type="submit" class="btn btn-primary btn-sm">Tìm</button>
+    <a href="@Url.Action("Index")" class="btn btn-secondary btn-sm">Xóa lọc</a>
+</form>
+
+<p>
+    Sắp xếp:
+    <a href="@Url.Action("Index", new { sortOrder = ViewData["NameSort"], search = search, page = 1 })">Theo tên</a>
+    |
+    <a href="@Url.Action("Index", new { sortOrder = ViewData["PriceSort"], search = search, page = 1 })">Theo giá</a>
+</p>
+
 <p><a href="@Url.Action("Create")" class="btn btn-primary">+ Thêm mới</a></p>
 
 <table class="table table-bordered table-striped">
@@ -13,25 +33,59 @@
             <th>ID</th>
             <th>Tên sản phẩm</th>
             <th>Danh mục</th>
-            <th>Giá</th>
+            <th class="text-end">Giá</th>
             <th>Hình ảnh</th>
             <th>Thao tác</th>
         </tr>
     </thead>
     <tbody>
-        @foreach (var item in Model)
+        @if (Model != null && Model.Any())
         {
-            <tr>
-                <td>@item.ProductId</td>
-                <td>@item.ProductName</td>
-                <td>@item.Category?.CategoryName</td>
-                <td>@item.ProductPrice</td>
-                <td><img src="@item.ProductImage" width="60" /></td>
-                <td>
-                    <a href="@Url.Action("Edit", new { id = item.ProductId })" class="btn btn-sm btn-warning">Sửa</a>
-                    <a href="@Url.Action("Delete", new { id = item.ProductId })" class="btn btn-sm btn-danger">Xóa</a>
-                </td>
-            </tr>
+            foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.ProductId</td>
+                    <td>@item.ProductName</td>
+                    <td>@item.Category?.CategoryName</td>
+                    <td class="text-end">@item.ProductPrice.ToString("N2")</td>
+                    <td>
+                        @if (!string.IsNullOrWhiteSpace(item.ProductImage))
+                        {
+                            <img src="@item.ProductImage" width="60" style="object-fit:cover;" />
+                        }
+                    </td>
+                    <td>
+                        <a href="@Url.Action("Edit", new { id = item.ProductId })" class="btn btn-sm btn-warning">Sửa</a>
+                        <a href="@Url.Action("Delete", new { id = item.ProductId })" class="btn btn-sm btn-danger">Xóa</a>
+                    </td>
+                </tr>
+            }
+        }
+        else
+        {
+            <tr><td colspan="6">Không có dữ liệu</td></tr>
         }
     </tbody>
 </table>
+
+@if (totalPages > 1)
+{
+    <nav aria-label="Phân trang">
+        <ul class="pagination">
+            <li class="page-item @(currentPage <= 1 ? "disabled" : "")">
+                <a class="page-link" href="@Url.Action("Index", new { page = currentPage - 1, search = search, sortOrder = currentSort })">« Trước</a>
+            </li>
+
+            @for (int i = 1; i <= totalPages; i++)
+            {
+                <li class="page-item @(i == currentPage ? "active" : "")">
+                    <a class="page-link" href="@Url.Action("Index", new { page = i, search = search, sortOrder = currentSort })">@i</a>
+                </li>
+            }
+
+            <li class="page-item @(currentPage >= totalPages ? "disabled" : "")">
+                <a class="page-link" href="@Url.Action("Index", new { page = currentPage + 1, search = search, sortOrder = currentSort })">Sau »</a>
+            </li>
+        </ul>
+    </nav>
+}

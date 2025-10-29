@@ -1,0 +1,47 @@
+﻿@model IEnumerable<_24dh111520_LTW.Models.Order>
+@{
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>Orders</h2>
+
+<form method="get">
+    <input type="text" name="search" placeholder="Search by customer..." value="@Context.Request.Query["search"]" />
+    <select name="status">
+        <option value="">All</option>
+        <option value="Pending">Pending</option>
+        <option value="Paid">Paid</option>
+        <option value="Cancelled">Cancelled</option>
+    </select>
+    <button type="submit">Filter</button>
+</form>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Customer</th>
+            <th>Date</th>
+            <th>Total</th>
+            <th>Payment</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var order in Model)
+        {
+            <tr>
+                <td>@order.OrderId</td>
+                <td>@order.Customer?.CustomerName</td>
+                <td>@order.OrderDate</td>
+                <td>@order.TotalAmount.ToString("N0")</td>
+                <td>@order.PaymentStatus</td>
+                <td>
+                    <a asp-area="Admin" asp-controller="Orders" asp-action="Details" asp-route-id="@order.OrderId">Details</a> |
+                    <a asp-area="Admin" asp-controller="Orders" asp-action="Edit" asp-route-id="@order.OrderId">Edit</a> |
+                    <a asp-area="Admin" asp-controller="Orders" asp-action="Delete" asp-route-id="@order.OrderId">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

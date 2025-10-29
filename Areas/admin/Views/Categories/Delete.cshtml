@@ -1,0 +1,18 @@
+﻿@model _24dh111520_LTW.Models.Category
+@{
+    ViewBag.Title = "Xoá danh mục";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>Xoá danh mục</h2>
+
+<div>
+    <h5>Bạn có chắc muốn xoá danh mục này không?</h5>
+    <p><strong>@Model.CategoryName</strong></p>
+
+    <form asp-action="Delete" method="post">
+        <input type="hidden" asp-for="CategoryId" />
+        <button type="submit" class="btn btn-danger">Xoá</button>
+        <a asp-action="Index" class="btn btn-secondary">Huỷ</a>
+    </form>
+</div>

@@ -20,6 +20,7 @@
       <PrivateAssets>all</PrivateAssets>
     </PackageReference>
     <PackageReference Include="EntityFramework" Version="6.5.1" />
+    <PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL" Version="9.0.4" />
   </ItemGroup>
   <ItemGroup>
     <None Remove="Areas\" />
@@ -29,6 +30,7 @@
     <None Remove="Areas\admin\Views\Shared\" />
     <None Remove="Areas\admin\Views\Categories\" />
     <None Remove="Areas\admin\Views\Products\" />
+    <None Remove="Areas\admin\Views\Orders\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Areas\" />
@@ -38,5 +40,6 @@
     <Folder Include="Areas\admin\Views\Shared\" />
     <Folder Include="Areas\admin\Views\Categories\" />
     <Folder Include="Areas\admin\Views\Products\" />
+    <Folder Include="Areas\admin\Views\Orders\" />
   </ItemGroup>
 </Project>

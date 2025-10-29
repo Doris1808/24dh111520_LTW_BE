@@ -8,27 +8,61 @@ namespace _24dh111520_LTW.Areas.Admin.Controllers
     public class ProductsController : Controller
     {
         private readonly MyStoreContext _context;
+        private readonly IWebHostEnvironment _env;
 
-        public ProductsController(MyStoreContext context)
+        public ProductsController(MyStoreContext context, IWebHostEnvironment env)
         {
             _context = context;
+            _env = env;
         }
 
-        // GET: Admin/Products
-        public async Task<IActionResult> Index()
+        //  INDEX - Tìm kiếm + sắp xếp + phân trang
+        public async Task<IActionResult> Index(string search, string sortOrder, int page = 1)
         {
-            var products = await _context.Products.Include(p => p.Category).ToListAsync();
-            return View(products);
+            int pageSize = 5;
+            var products = _context.Products.Include(p => p.Category).AsQueryable();
+
+            // Tìm kiếm
+            if (!string.IsNullOrEmpty(search))
+            {
+                products = products.Where(p =>
+                    EF.Functions.ILike(p.ProductName, $"%{search}%") ||
+                    EF.Functions.ILike(p.ProductDescription, $"%{search}%") ||
+                    EF.Functions.ILike(p.Category.CategoryName, $"%{search}%"));
+            }
+
+            // Sắp xếp
+            ViewData["NameSort"] = String.IsNullOrEmpty(sortOrder) ? "name_desc" : "";
+            ViewData["PriceSort"] = sortOrder == "price" ? "price_desc" : "price";
+
+            products = sortOrder switch
+            {
+                "name_desc" => products.OrderByDescending(p => p.ProductName),
+                "price" => products.OrderBy(p => p.ProductPrice),
+                "price_desc" => products.OrderByDescending(p => p.ProductPrice),
+                _ => products.OrderBy(p => p.ProductName),
+            };
+
+            // Phân trang
+            var totalItems = await products.CountAsync();
+            var paged = await products.Skip((page - 1) * pageSize).Take(pageSize).ToListAsync();
+
+            Console.WriteLine("Số sản phẩm trả về view Index: " + paged.Count);
+            ViewBag.CurrentPage = page;
+            ViewBag.TotalPages = (int)Math.Ceiling(totalItems / (double)pageSize);
+            ViewBag.Search = search;
+
+            return View(paged);
         }
 
-        // GET: Admin/Products/Create
+        //  CREATE (GET)
         public IActionResult Create()
         {
-            ViewBag.Categories = _context.Categories.ToList();
+            ViewBag.Categories = _context.Categories.OrderBy(c => c.CategoryName).ToList();
             return View();
         }
 
-        // POST: Admin/Products/Create
+        //  CREATE (POST)
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create(Product product)
@@ -43,11 +77,10 @@ namespace _24dh111520_LTW.Areas.Admin.Controllers
             return View(product);
         }
 
-        // GET: Admin/Products/Edit/5
-        public async Task<IActionResult> Edit(int? id)
-        {
-            if (id == null) return NotFound();
 
+        //  EDIT (GET)
+        public async Task<IActionResult> Edit(int id)
+        {
             var product = await _context.Products.FindAsync(id);
             if (product == null) return NotFound();
 
@@ -55,45 +88,54 @@ namespace _24dh111520_LTW.Areas.Admin.Controllers
             return View(product);
         }
 
-        // POST: Admin/Products/Edit/5
+        //  EDIT (POST)
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, Product product)
+        public async Task<IActionResult> Edit(Product product, IFormFile? ImageFile)
         {
-            if (id != product.ProductId) return NotFound();
-
             if (ModelState.IsValid)
             {
+                if (ImageFile != null && ImageFile.Length > 0)
+                {
+                    string uploadFolder = Path.Combine(_env.WebRootPath, "images");
+                    Directory.CreateDirectory(uploadFolder);
+
+                    string filePath = Path.Combine(uploadFolder, ImageFile.FileName);
+                    using var stream = new FileStream(filePath, FileMode.Create);
+                    await ImageFile.CopyToAsync(stream);
+
+                    product.ProductImage = "/images/" + ImageFile.FileName;
+                }
+
                 _context.Update(product);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
+
             ViewBag.Categories = _context.Categories.ToList();
             return View(product);
         }
 
-        // GET: Admin/Products/Delete/5
-        public async Task<IActionResult> Delete(int? id)
+        //  DELETE
+        public async Task<IActionResult> Delete(int id)
         {
-            if (id == null) return NotFound();
-
-            var product = await _context.Products
-                .Include(p => p.Category)
-                .FirstOrDefaultAsync(m => m.ProductId == id);
-
+            var product = await _context.Products.Include(p => p.Category)
+                                                 .FirstOrDefaultAsync(p => p.ProductId == id);
             if (product == null) return NotFound();
 
             return View(product);
         }
 
-        // POST: Admin/Products/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
             var product = await _context.Products.FindAsync(id);
-            _context.Products.Remove(product);
-            await _context.SaveChangesAsync();
+            if (product != null)
+            {
+                _context.Products.Remove(product);
+                await _context.SaveChangesAsync();
+            }
             return RedirectToAction(nameof(Index));
         }
     }

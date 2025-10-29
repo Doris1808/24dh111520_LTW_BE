@@ -1,0 +1,20 @@
+﻿@model _24dh111520_LTW.Models.Order
+@{
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>Edit Order #@Model.OrderId</h2>
+
+<form asp-area="Admin" asp-controller="Orders" asp-action="Edit" method="post">
+    <input type="hidden" asp-for="OrderId" />
+    <div class="form-group">
+        <label>Payment Status</label>
+        <select asp-for="PaymentStatus" class="form-control">
+            <option>Pending</option>
+            <option>Paid</option>
+            <option>Cancelled</option>
+        </select>
+    </div>
+    <button type="submit" class="btn btn-success">Save</button>
+    <a asp-area="Admin" asp-controller="Orders" asp-action="Index" class="btn btn-secondary">Cancel</a>
+</form>

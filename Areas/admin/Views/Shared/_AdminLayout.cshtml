@@ -4,26 +4,51 @@
     <meta charset="utf-8" />
     <title>@ViewBag.Title - Admin Panel</title>
     <link href="~/lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <base href="~/" />
+    <style>
+        body {
+            background-color: #fafafa;
+        }
+
+        header h2 {
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        nav a {
+            margin-right: 8px;
+        }
+
+        footer {
+            margin-top: 30px;
+            color: #666;
+        }
+    </style>
 </head>
 <body>
-    <div class="container mt-3">
-        <header>
-            <h2 class="text-center">TRANG QUẢN TRỊ - ADMIN SITE</h2>
-            <hr />
-            <nav class="mb-3">
-                <a href="/Admin/Categories" class="btn btn-outline-primary">Danh mục</a>
-                <a href="/Admin/Products" class="btn btn-outline-success">Sản phẩm</a>
-                <a href="/Admin/Customers" class="btn btn-outline-info">Khách hàng</a>
-                <a href="/Admin/Orders" class="btn btn-outline-warning">Đơn hàng</a>
+    <div class="container mt-4">
+        <header class="text-center">
+            <h2>TRANG QUẢN TRỊ - ADMIN SITE</h2>
+            <nav class="mb-4">
+                <a asp-area="Admin" asp-controller="Categories" asp-action="Index" class="btn btn-outline-primary">Danh mục</a>
+                <a asp-area="Admin" asp-controller="Products" asp-action="Index" class="btn btn-outline-success">Sản phẩm</a>
+                <a asp-area="Admin" asp-controller="Customers" asp-action="Index" class="btn btn-outline-info">Khách hàng</a>
+                <a asp-area="Admin" asp-controller="Orders" asp-action="Index" class="btn btn-outline-warning">Đơn hàng</a>
+                <a asp-area="" asp-controller="Home" asp-action="Index" class="btn btn-outline-secondary float-end">Đăng xuất</a>
             </nav>
+            <hr />
         </header>
 
-        @RenderBody()
+        <main>
+            @RenderBody()
+        </main>
 
-        <hr />
         <footer class="text-center">
+            <hr />
             <small>&copy; 2025 - Admin Area - 24DH111520</small>
         </footer>
     </div>
+
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
