@@ -76,7 +76,7 @@ namespace _24dh111520_LTW.Models
                 entity.Property(e => e.ProductId).HasColumnName("productid");
                 entity.Property(e => e.CategoryId).HasColumnName("categoryid");
                 entity.Property(e => e.ProductName).HasColumnName("productname").HasMaxLength(255);
-                entity.Property(e => e.ProductDescription).HasColumnName("productdecription").HasMaxLength(1000);
+                entity.Property(e => e.ProductDecription).HasColumnName("productdecription").HasMaxLength(1000);
                 entity.Property(e => e.ProductPrice).HasColumnName("productprice");
                 entity.Property(e => e.ProductImage).HasColumnName("productimage").HasMaxLength(255);
 

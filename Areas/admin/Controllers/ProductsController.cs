@@ -27,7 +27,7 @@ namespace _24dh111520_LTW.Areas.Admin.Controllers
             {
                 products = products.Where(p =>
                     EF.Functions.ILike(p.ProductName, $"%{search}%") ||
-                    EF.Functions.ILike(p.ProductDescription, $"%{search}%") ||
+                    EF.Functions.ILike(p.ProductDecription, $"%{search}%") ||
                     EF.Functions.ILike(p.Category.CategoryName, $"%{search}%"));
             }
 

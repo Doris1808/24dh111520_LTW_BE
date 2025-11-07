@@ -1,0 +1,31 @@
+﻿@model IEnumerable<_24dh111520_LTW.Models.Product>
+@{
+    ViewBag.Title = "Trang chủ";
+    Layout = "~/Areas/Customer/Views/Shared/_CustomerLayout.cshtml";
+}
+
+<h2 class="text-center mb-4">Sản phẩm nổi bật</h2>
+
+<div class="row">
+    @foreach (var item in Model)
+    {
+        <div class="col-md-3 mb-4">
+            <div class="card shadow-sm">
+                <img src="@item.ProductImage" class="card-img-top" style="height:200px;object-fit:cover;" />
+                <div class="card-body text-center">
+                    <h5 class="card-title">@item.ProductName</h5>
+                    <p class="text-muted">@item.ProductPrice.ToString("C0")</p>
+
+                    <!-- ✅ Đảm bảo có asp-area="Customer" -->
+                    <a asp-area="Customer"
+                       asp-controller="Home"
+                       asp-action="ProductDetail"
+                       asp-route-id="@item.ProductId"
+                       class="btn btn-outline-primary">
+                        Xem chi tiết
+                    </a>
+                </div>
+            </div>
+        </div>
+    }
+</div>

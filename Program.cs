@@ -3,10 +3,8 @@ using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
 builder.Services.AddControllersWithViews();
 
-// ✅ Dùng PostgreSQL thay vì SQL Server
 builder.Services.AddDbContext<MyStoreContext>(options =>
     options.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection")));
 
@@ -21,11 +19,19 @@ app.UseStaticFiles();
 app.UseRouting();
 app.UseAuthorization();
 
-// Routes
-app.MapControllerRoute(
-    name: "areas",
-    pattern: "{area:exists}/{controller=Home}/{action=Index}/{id?}");
+// ✅ Route cho Admin Area
+app.MapAreaControllerRoute(
+    name: "admin",
+    areaName: "Admin",
+    pattern: "Admin/{controller=Home}/{action=Index}/{id?}");
 
+// ✅ Route cho Customer Area
+app.MapAreaControllerRoute(
+    name: "customer",
+    areaName: "Customer",
+    pattern: "Customer/{controller=Home}/{action=Index}/{id?}");
+
+// ✅ Route mặc định (nếu không có area)
 app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}");

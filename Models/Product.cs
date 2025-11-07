@@ -10,7 +10,7 @@ namespace _24dh111520_LTW.Models
 
         public string ProductName { get; set; } = null!;
 
-        public string ProductDescription { get; set; } = null!;
+        public string ProductDecription { get; set; } = null!;
 
         public decimal ProductPrice { get; set; }
         public string? ProductImage { get; set; }

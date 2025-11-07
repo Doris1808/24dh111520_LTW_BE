@@ -6,35 +6,41 @@
 
 <h2>Chỉnh sửa sản phẩm</h2>
 
-<form asp-action="Edit" method="post">
+<form asp-action="Edit" method="post" enctype="multipart/form-data">
     <input type="hidden" asp-for="ProductId" />
 
     <div class="form-group">
-        <label>Tên sản phẩm</label>
+        <label asp-for="ProductName"></label>
         <input asp-for="ProductName" class="form-control" required />
+        <span asp-validation-for="ProductName" class="text-danger"></span>
     </div>
 
     <div class="form-group">
-        <label>Mô tả</label>
-        <textarea asp-for="ProductDescription" class="form-control" required></textarea>
+        <label asp-for="ProductDecription"></label>
+        <textarea asp-for="ProductDecription" class="form-control" required></textarea>
+        <span asp-validation-for="ProductDecription" class="text-danger"></span>
     </div>
 
     <div class="form-group">
-        <label>Giá</label>
+        <label asp-for="ProductPrice"></label>
         <input asp-for="ProductPrice" type="number" step="0.01" class="form-control" required />
+        <span asp-validation-for="ProductPrice" class="text-danger"></span>
     </div>
 
     <div class="form-group">
-        <label>Danh mục</label>
-        @Html.DropDownListFor(model => model.CategoryId,
-            new SelectList(ViewBag.Categories, "CategoryId", "CategoryName", Model.CategoryId),
-            "-- Chọn danh mục --",
-            new { @class = "form-control", required = "required" })
+        <label asp-for="CategoryId">Danh mục</label>
+        <select asp-for="CategoryId" class="form-control" asp-items="ViewBag.CategoryList"></select>
+        <span asp-validation-for="CategoryId" class="text-danger"></span>
     </div>
 
     <div class="form-group">
-        <label>Hình ảnh (URL)</label>
+        <label asp-for="ProductImage"></label>
         <input asp-for="ProductImage" class="form-control" />
+        <span asp-validation-for="ProductImage" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label>Chọn ảnh mới (tùy chọn)</label>
+        <input type="file" name="ImageFile" class="form-control" />
     </div>
 
     <button type="submit" class="btn btn-primary mt-2">Cập nhật</button>

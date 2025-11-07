@@ -1,0 +1,66 @@
+﻿<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="utf-8" />
+    <title>@ViewBag.Title - MyStore</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link href="~/lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <style>
+        body {
+            background-color: #ffffff; /* ✅ trắng tinh */
+            color: #000000; /* ✅ chữ đen */
+            font-family: 'Segoe UI', sans-serif;
+        }
+
+        /* HEADER */
+        header {
+            background-color: #ffffff;
+            color: #ffffff;
+            padding: 15px 0;
+            border-bottom: 1px solid #e0e0e0; /* nhẹ nhàng phân cách */
+        }
+
+            header h2 {
+                font-weight: 600;
+                color: #111;
+            }
+
+        /* NAVIGATION */
+        nav a {
+            color: #000000;
+            margin: 0 10px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.2s ease;
+        }
+
+            nav a:hover {
+                color: #007bff; /* hover xanh nhẹ */
+                text-decoration: underline;
+            }
+
+        /* FOOTER */
+        footer {
+            background-color: #ffffff;
+            color: #444;
+            padding: 15px 0;
+            margin-top: 40px;
+            text-align: center;
+            border-top: 1px solid #e0e0e0;
+        }
+    </style>
+</head>
+<body>
+    <!-- ✅ Gọi header -->
+    @await Html.PartialAsync("_Header")
+
+    <main class="container mt-4">
+        @RenderBody()
+    </main>
+
+    <!-- ✅ Gọi footer -->
+    @await Html.PartialAsync("_Footer")
+
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

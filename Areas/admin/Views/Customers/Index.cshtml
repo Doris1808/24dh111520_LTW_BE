@@ -1,0 +1,31 @@
+﻿@model IEnumerable<_24dh111520_LTW.Models.Customer>
+@{
+    ViewBag.Title = "Quản lý khách hàng";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>Danh sách khách hàng</h2>
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Tên khách hàng</th>
+            <th>Số điện thoại</th>
+            <th>Email</th>
+            <th>Địa chỉ</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var c in Model)
+        {
+            <tr>
+                <td>@c.CustomerId</td>
+                <td>@c.CustomerName</td>
+                <td>@c.CustomerPhone</td>
+                <td>@c.CustomerEmail</td>
+                <td>@c.CustomerAddress</td>
+            </tr>
+        }
+    </tbody>
+</table>

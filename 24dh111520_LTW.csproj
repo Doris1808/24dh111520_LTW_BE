@@ -24,22 +24,35 @@
   </ItemGroup>
   <ItemGroup>
     <None Remove="Areas\" />
-    <None Remove="Areas\admin\" />
     <None Remove="Areas\admin\Controllers\" />
     <None Remove="Areas\admin\Views\" />
     <None Remove="Areas\admin\Views\Shared\" />
     <None Remove="Areas\admin\Views\Categories\" />
     <None Remove="Areas\admin\Views\Products\" />
     <None Remove="Areas\admin\Views\Orders\" />
+    <None Remove="Areas\Customer\" />
+    <None Remove="Areas\Customer\Controllers\" />
+    <None Remove="Areas\Customer\Views\" />
+    <None Remove="Areas\Customer\Views\Home\" />
+    <None Remove="Areas\Customer\Views\Shared\" />
+    <None Remove="Areas\admin\Views\Customers\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Areas\" />
-    <Folder Include="Areas\admin\" />
-    <Folder Include="Areas\admin\Controllers\" />
-    <Folder Include="Areas\admin\Views\" />
-    <Folder Include="Areas\admin\Views\Shared\" />
-    <Folder Include="Areas\admin\Views\Categories\" />
-    <Folder Include="Areas\admin\Views\Products\" />
-    <Folder Include="Areas\admin\Views\Orders\" />
+    <Folder Include="Areas\Admin\Controllers\" />
+    <Folder Include="Areas\Admin\Views\" />
+    <Folder Include="Areas\Admin\Views\Shared\" />
+    <Folder Include="Areas\Admin\Views\Categories\" />
+    <Folder Include="Areas\Admin\Views\Products\" />
+    <Folder Include="Areas\Admin\Views\Orders\" />
+    <Folder Include="Areas\Customer\" />
+    <Folder Include="Areas\Customer\Controllers\" />
+    <Folder Include="Areas\Customer\Views\" />
+    <Folder Include="Areas\Customer\Views\Home\" />
+    <Folder Include="Areas\Customer\Views\Shared\" />
+    <Folder Include="Areas\Admin\Views\Customers\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\.editorconfig" />
   </ItemGroup>
 </Project>

@@ -26,64 +26,92 @@ build_property.GenerateRazorMetadataSourceChecksumAttributes =
 build_property.MSBuildProjectDirectory = /Users/jasonluong/Desktop/du-an-html/24dh111520_LTW/24dh111520_LTW
 build_property._RazorSourceGeneratorDebug = 
 
-[/Users/jasonluong/Desktop/du-an-html/24dh111520_LTW/24dh111520_LTW/Areas/admin/Views/Categories/Create.cshtml]
-build_metadata.AdditionalFiles.TargetPath = QXJlYXMvYWRtaW4vVmlld3MvQ2F0ZWdvcmllcy9DcmVhdGUuY3NodG1s
+[/Users/jasonluong/Desktop/du-an-html/24dh111520_LTW/24dh111520_LTW/Areas/Admin/Views/Categories/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXMvQWRtaW4vVmlld3MvQ2F0ZWdvcmllcy9DcmVhdGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/jasonluong/Desktop/du-an-html/24dh111520_LTW/24dh111520_LTW/Areas/admin/Views/Categories/Delete.cshtml]
-build_metadata.AdditionalFiles.TargetPath = QXJlYXMvYWRtaW4vVmlld3MvQ2F0ZWdvcmllcy9EZWxldGUuY3NodG1s
+[/Users/jasonluong/Desktop/du-an-html/24dh111520_LTW/24dh111520_LTW/Areas/Admin/Views/Categories/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXMvQWRtaW4vVmlld3MvQ2F0ZWdvcmllcy9EZWxldGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/jasonluong/Desktop/du-an-html/24dh111520_LTW/24dh111520_LTW/Areas/admin/Views/Categories/Edit.cshtml]
-build_metadata.AdditionalFiles.TargetPath = QXJlYXMvYWRtaW4vVmlld3MvQ2F0ZWdvcmllcy9FZGl0LmNzaHRtbA==
+[/Users/jasonluong/Desktop/du-an-html/24dh111520_LTW/24dh111520_LTW/Areas/Admin/Views/Categories/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXMvQWRtaW4vVmlld3MvQ2F0ZWdvcmllcy9FZGl0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/jasonluong/Desktop/du-an-html/24dh111520_LTW/24dh111520_LTW/Areas/admin/Views/Categories/Index.cshtml]
-build_metadata.AdditionalFiles.TargetPath = QXJlYXMvYWRtaW4vVmlld3MvQ2F0ZWdvcmllcy9JbmRleC5jc2h0bWw=
+[/Users/jasonluong/Desktop/du-an-html/24dh111520_LTW/24dh111520_LTW/Areas/Admin/Views/Categories/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXMvQWRtaW4vVmlld3MvQ2F0ZWdvcmllcy9JbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/jasonluong/Desktop/du-an-html/24dh111520_LTW/24dh111520_LTW/Areas/admin/Views/Orders/Delete.cshtml]
-build_metadata.AdditionalFiles.TargetPath = QXJlYXMvYWRtaW4vVmlld3MvT3JkZXJzL0RlbGV0ZS5jc2h0bWw=
+[/Users/jasonluong/Desktop/du-an-html/24dh111520_LTW/24dh111520_LTW/Areas/Admin/Views/Customers/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXMvQWRtaW4vVmlld3MvQ3VzdG9tZXJzL0luZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/jasonluong/Desktop/du-an-html/24dh111520_LTW/24dh111520_LTW/Areas/admin/Views/Orders/Details.cshtml]
-build_metadata.AdditionalFiles.TargetPath = QXJlYXMvYWRtaW4vVmlld3MvT3JkZXJzL0RldGFpbHMuY3NodG1s
+[/Users/jasonluong/Desktop/du-an-html/24dh111520_LTW/24dh111520_LTW/Areas/Admin/Views/Orders/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXMvQWRtaW4vVmlld3MvT3JkZXJzL0RlbGV0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/jasonluong/Desktop/du-an-html/24dh111520_LTW/24dh111520_LTW/Areas/admin/Views/Orders/Edit.cshtml]
-build_metadata.AdditionalFiles.TargetPath = QXJlYXMvYWRtaW4vVmlld3MvT3JkZXJzL0VkaXQuY3NodG1s
+[/Users/jasonluong/Desktop/du-an-html/24dh111520_LTW/24dh111520_LTW/Areas/Admin/Views/Orders/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXMvQWRtaW4vVmlld3MvT3JkZXJzL0RldGFpbHMuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/jasonluong/Desktop/du-an-html/24dh111520_LTW/24dh111520_LTW/Areas/admin/Views/Orders/Index.cshtml]
-build_metadata.AdditionalFiles.TargetPath = QXJlYXMvYWRtaW4vVmlld3MvT3JkZXJzL0luZGV4LmNzaHRtbA==
+[/Users/jasonluong/Desktop/du-an-html/24dh111520_LTW/24dh111520_LTW/Areas/Admin/Views/Orders/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXMvQWRtaW4vVmlld3MvT3JkZXJzL0VkaXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/jasonluong/Desktop/du-an-html/24dh111520_LTW/24dh111520_LTW/Areas/admin/Views/Products/Create.cshtml]
-build_metadata.AdditionalFiles.TargetPath = QXJlYXMvYWRtaW4vVmlld3MvUHJvZHVjdHMvQ3JlYXRlLmNzaHRtbA==
+[/Users/jasonluong/Desktop/du-an-html/24dh111520_LTW/24dh111520_LTW/Areas/Admin/Views/Orders/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXMvQWRtaW4vVmlld3MvT3JkZXJzL0luZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/jasonluong/Desktop/du-an-html/24dh111520_LTW/24dh111520_LTW/Areas/admin/Views/Products/Delete.cshtml]
-build_metadata.AdditionalFiles.TargetPath = QXJlYXMvYWRtaW4vVmlld3MvUHJvZHVjdHMvRGVsZXRlLmNzaHRtbA==
+[/Users/jasonluong/Desktop/du-an-html/24dh111520_LTW/24dh111520_LTW/Areas/Admin/Views/Products/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXMvQWRtaW4vVmlld3MvUHJvZHVjdHMvQ3JlYXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/jasonluong/Desktop/du-an-html/24dh111520_LTW/24dh111520_LTW/Areas/admin/Views/Products/Edit.cshtml]
-build_metadata.AdditionalFiles.TargetPath = QXJlYXMvYWRtaW4vVmlld3MvUHJvZHVjdHMvRWRpdC5jc2h0bWw=
+[/Users/jasonluong/Desktop/du-an-html/24dh111520_LTW/24dh111520_LTW/Areas/Admin/Views/Products/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXMvQWRtaW4vVmlld3MvUHJvZHVjdHMvRGVsZXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/jasonluong/Desktop/du-an-html/24dh111520_LTW/24dh111520_LTW/Areas/admin/Views/Products/Index.cshtml]
-build_metadata.AdditionalFiles.TargetPath = QXJlYXMvYWRtaW4vVmlld3MvUHJvZHVjdHMvSW5kZXguY3NodG1s
+[/Users/jasonluong/Desktop/du-an-html/24dh111520_LTW/24dh111520_LTW/Areas/Admin/Views/Products/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXMvQWRtaW4vVmlld3MvUHJvZHVjdHMvRWRpdC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/jasonluong/Desktop/du-an-html/24dh111520_LTW/24dh111520_LTW/Areas/admin/Views/Shared/_AdminLayout.cshtml]
-build_metadata.AdditionalFiles.TargetPath = QXJlYXMvYWRtaW4vVmlld3MvU2hhcmVkL19BZG1pbkxheW91dC5jc2h0bWw=
+[/Users/jasonluong/Desktop/du-an-html/24dh111520_LTW/24dh111520_LTW/Areas/Admin/Views/Products/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXMvQWRtaW4vVmlld3MvUHJvZHVjdHMvSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/jasonluong/Desktop/du-an-html/24dh111520_LTW/24dh111520_LTW/Areas/admin/Views/_ViewImports.cshtml]
-build_metadata.AdditionalFiles.TargetPath = QXJlYXMvYWRtaW4vVmlld3MvX1ZpZXdJbXBvcnRzLmNzaHRtbA==
+[/Users/jasonluong/Desktop/du-an-html/24dh111520_LTW/24dh111520_LTW/Areas/Admin/Views/Shared/_AdminLayout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXMvQWRtaW4vVmlld3MvU2hhcmVkL19BZG1pbkxheW91dC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/jasonluong/Desktop/du-an-html/24dh111520_LTW/24dh111520_LTW/Areas/admin/Views/_ViewStart.cshtml]
-build_metadata.AdditionalFiles.TargetPath = QXJlYXMvYWRtaW4vVmlld3MvX1ZpZXdTdGFydC5jc2h0bWw=
+[/Users/jasonluong/Desktop/du-an-html/24dh111520_LTW/24dh111520_LTW/Areas/Admin/Views/_ViewImports.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXMvQWRtaW4vVmlld3MvX1ZpZXdJbXBvcnRzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/jasonluong/Desktop/du-an-html/24dh111520_LTW/24dh111520_LTW/Areas/Admin/Views/_ViewStart.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXMvQWRtaW4vVmlld3MvX1ZpZXdTdGFydC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/jasonluong/Desktop/du-an-html/24dh111520_LTW/24dh111520_LTW/Areas/Customer/Views/Home/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXMvQ3VzdG9tZXIvVmlld3MvSG9tZS9JbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/jasonluong/Desktop/du-an-html/24dh111520_LTW/24dh111520_LTW/Areas/Customer/Views/Home/ProductDetail.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXMvQ3VzdG9tZXIvVmlld3MvSG9tZS9Qcm9kdWN0RGV0YWlsLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/jasonluong/Desktop/du-an-html/24dh111520_LTW/24dh111520_LTW/Areas/Customer/Views/Shared/_CustomerLayout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXMvQ3VzdG9tZXIvVmlld3MvU2hhcmVkL19DdXN0b21lckxheW91dC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/jasonluong/Desktop/du-an-html/24dh111520_LTW/24dh111520_LTW/Areas/Customer/Views/Shared/_Footer.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXMvQ3VzdG9tZXIvVmlld3MvU2hhcmVkL19Gb290ZXIuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/jasonluong/Desktop/du-an-html/24dh111520_LTW/24dh111520_LTW/Areas/Customer/Views/Shared/_Header.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXMvQ3VzdG9tZXIvVmlld3MvU2hhcmVkL19IZWFkZXIuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/jasonluong/Desktop/du-an-html/24dh111520_LTW/24dh111520_LTW/Areas/Customer/Views/_ViewImports.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXMvQ3VzdG9tZXIvVmlld3MvX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [/Users/jasonluong/Desktop/du-an-html/24dh111520_LTW/24dh111520_LTW/Views/Home/Index.cshtml]

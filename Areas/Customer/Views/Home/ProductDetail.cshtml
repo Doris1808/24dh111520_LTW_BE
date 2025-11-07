@@ -1,0 +1,23 @@
+﻿@model _24dh111520_LTW.Models.Product
+@{
+    ViewBag.Title = "Chi tiết sản phẩm";
+    Layout = "~/Areas/Customer/Views/Shared/_CustomerLayout.cshtml";
+}
+
+<div class="container mt-4">
+    <div class="row">
+        <div class="col-md-5">
+            <img src="@Model.ProductImage" class="img-fluid rounded" alt="@Model.ProductName" />
+        </div>
+
+        <div class="col-md-7">
+            <h2>@Model.ProductName</h2>
+            <h5 class="text-muted">Danh mục: @Model.Category?.CategoryName</h5>
+            <p class="mt-3">@Model.ProductDecription</p>
+            <h4 class="text-danger mt-3">@Model.ProductPrice.ToString("C0") ₫</h4>
+
+            <a href="#" class="btn btn-success mt-3">🛒 Thêm vào giỏ</a>
+            <a asp-action="Index" class="btn btn-outline-secondary mt-3">⬅ Quay lại</a>
+        </div>
+    </div>
+</div>

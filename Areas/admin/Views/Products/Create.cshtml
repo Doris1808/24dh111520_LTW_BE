@@ -1,34 +1,39 @@
 ﻿@model _24dh111520_LTW.Models.Product
+@using Microsoft.AspNetCore.Mvc.Rendering
 @{
     ViewBag.Title = "Thêm sản phẩm";
     Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
 }
 
 <h2>Thêm sản phẩm</h2>
-<form asp-action="Create" method="post" enctype="multipart/form-data">
+
+<form asp-action="Create" method="post">
     <div class="form-group">
-        <label>Tên sản phẩm</label>
-        <input asp-for="ProductName" class="form-control" required />
+        <label asp-for="ProductName"></label>
+        <input asp-for="ProductName" class="form-control" />
+        <span asp-validation-for="ProductName" class="text-danger"></span>
     </div>
     <div class="form-group">
-        <label>Mô tả</label>
-        <textarea asp-for="ProductDescription" class="form-control" required></textarea>
+        <label asp-for="ProductDecription"></label>
+        <input asp-for="ProductDecription" class="form-control" />
+        <span asp-validation-for="ProductDecription" class="text-danger"></span>
     </div>
     <div class="form-group">
-        <label>Giá</label>
-        <input asp-for="ProductPrice" type="number" step="0.01" class="form-control" required />
+        <label asp-for="ProductPrice"></label>
+        <input asp-for="ProductPrice" type="number" class="form-control" min="0" />
+        <span asp-validation-for="ProductPrice" class="text-danger"></span>
     </div>
     <div class="form-group">
-        <label>Danh mục</label>
-        @Html.DropDownListFor(model => model.CategoryId,
-            new SelectList(ViewBag.Categories, "CategoryId", "CategoryName", Model?.CategoryId),
-            "-- Chọn danh mục --",
-            new { @class = "form-control", required = "required" })
+        <label asp-for="CategoryId">Danh mục</label>
+        <select asp-for="CategoryId" class="form-control" asp-items="ViewBag.CategoryList"></select>
+        <span asp-validation-for="CategoryId" class="text-danger"></span>
     </div>
     <div class="form-group">
-        <label>Hình ảnh (URL)</label>
-        <input asp-for="ProductImage" class="form-control" placeholder="Nhập đường dẫn ảnh..." />
+        <label asp-for="ProductImage"></label>
+        <input asp-for="ProductImage" class="form-control" />
+        <span asp-validation-for="ProductImage" class="text-danger"></span>
     </div>
     <button type="submit" class="btn btn-success mt-2">Lưu</button>
-    <a asp-action="Index" class="btn btn-primary mt-2 ms-2">Quay về danh sách</a>
+    <a asp-action="Index" class="btn btn-secondary mt-2">Quay lại</a>
 </form>
+
