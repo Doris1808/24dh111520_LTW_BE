@@ -67,16 +67,47 @@ namespace _24dh111520_LTW.Areas.Admin.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create(Product product)
         {
-            if (ModelState.IsValid)
+            Console.WriteLine("=== 🟢 POST /Admin/Products/Create ===");
+            Console.WriteLine($"ProductName: {product.ProductName}");
+            Console.WriteLine($"CategoryId: {product.CategoryId}");
+            Console.WriteLine($"Description: {product.ProductDecription}");
+            Console.WriteLine($"Price: {product.ProductPrice}");
+            Console.WriteLine($"ModelState.IsValid = {ModelState.IsValid}");
+
+            // ✅ Kiểm tra dữ liệu hợp lệ
+            /*if (!ModelState.IsValid)
             {
+                Console.WriteLine("❌ ModelState INVALID:");
+                foreach (var key in ModelState.Keys)
+                {
+                    var state = ModelState[key];
+                    foreach (var error in state.Errors)
+                    {
+                        Console.WriteLine($"  Field '{key}': {error.ErrorMessage}");
+                    }
+                }
+
+                ViewBag.Categories = _context.Categories.ToList();
+                return View(product);
+            }
+            */
+            try
+            {
+                // ✅ Thêm vào database
                 _context.Add(product);
                 await _context.SaveChangesAsync();
+
+                Console.WriteLine("✅ Product saved successfully!");
                 return RedirectToAction(nameof(Index));
             }
-            ViewBag.Categories = _context.Categories.ToList();
-            return View(product);
+            catch (Exception ex)
+            {
+                Console.WriteLine("🔥 Exception while saving: " + ex.Message);
+                Console.WriteLine(ex.StackTrace);
+                ViewBag.Categories = _context.Categories.ToList();
+                return View(product);
+            }
         }
-
 
         //  EDIT (GET)
         public async Task<IActionResult> Edit(int id)

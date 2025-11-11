@@ -6,6 +6,12 @@
 
 <h2 class="text-center mb-4">Sản phẩm nổi bật</h2>
 
+@if (Context.Session.GetString("CustomerName") != null)
+{
+    <p>Xin chào, @Context.Session.GetString("CustomerName")!</p>
+    <p>Email: @Context.Session.GetString("CustomerEmail")</p>
+}
+
 <div class="row">
     @foreach (var item in Model)
     {
@@ -24,6 +30,15 @@
                        class="btn btn-outline-primary">
                         Xem chi tiết
                     </a>
+
+                    <a asp-area="Customer"
+                       asp-controller="Cart"
+                       asp-action="AddToCart"
+                       asp-route-id="@item.ProductId"
+                       class="btn btn-success mt-2">
+                        🛒 Thêm vào giỏ
+                    </a>
+
                 </div>
             </div>
         </div>

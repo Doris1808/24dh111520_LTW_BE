@@ -10,6 +10,7 @@
   <PropertyGroup Condition=" '$(RunConfiguration)' == 'http' " />
 
   <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Session" Version="2.3.0" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="9.0.9">
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
       <PrivateAssets>all</PrivateAssets>
@@ -20,6 +21,7 @@
       <PrivateAssets>all</PrivateAssets>
     </PackageReference>
     <PackageReference Include="EntityFramework" Version="6.5.1" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.4" />
     <PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL" Version="9.0.4" />
   </ItemGroup>
   <ItemGroup>
@@ -36,6 +38,9 @@
     <None Remove="Areas\Customer\Views\Home\" />
     <None Remove="Areas\Customer\Views\Shared\" />
     <None Remove="Areas\admin\Views\Customers\" />
+    <None Remove="Areas\Customer\Views\Cart\" />
+    <None Remove="Areas\Customer\Views\Account\" />
+    <None Remove="Areas\Customer\Middlewares\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Areas\" />
@@ -51,6 +56,9 @@
     <Folder Include="Areas\Customer\Views\Home\" />
     <Folder Include="Areas\Customer\Views\Shared\" />
     <Folder Include="Areas\Admin\Views\Customers\" />
+    <Folder Include="Areas\Customer\Views\Cart\" />
+    <Folder Include="Areas\Customer\Views\Account\" />
+    <Folder Include="Areas\Customer\Middlewares\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="..\.editorconfig" />

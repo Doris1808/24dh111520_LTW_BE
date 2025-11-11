@@ -1,9 +1,12 @@
-﻿using _24dh111520_LTW.Models;
+﻿using _24dh111520_LTW.Middleware;
+using _24dh111520_LTW.Models;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddControllersWithViews();
+
+builder.Services.AddSession();
 
 builder.Services.AddDbContext<MyStoreContext>(options =>
     options.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection")));
@@ -17,21 +20,22 @@ if (!app.Environment.IsDevelopment())
 
 app.UseStaticFiles();
 app.UseRouting();
+app.UseSession();
+app.UseAuthMiddleware();  
 app.UseAuthorization();
 
-// ✅ Route cho Admin Area
+//  Route cho Admin Area
 app.MapAreaControllerRoute(
     name: "admin",
     areaName: "Admin",
     pattern: "Admin/{controller=Home}/{action=Index}/{id?}");
 
-// ✅ Route cho Customer Area
+//  Route cho Customer Area
 app.MapAreaControllerRoute(
     name: "customer",
     areaName: "Customer",
     pattern: "Customer/{controller=Home}/{action=Index}/{id?}");
 
-// ✅ Route mặc định (nếu không có area)
 app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}");
